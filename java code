@@ -1,0 +1,338 @@
+#Java Code For Calculator App  
+package com.example.calculator; 
+import android.os.Bundle; 
+import androidx.activity.EdgeToEdge; 
+import androidx.appcompat.app.AppCompatActivity; 
+import androidx.core.graphics.Insets; 
+import androidx.core.view.ViewCompat; 
+import androidx.core.view.WindowInsetsCompat; 
+import androidx.appcompat.app.AppCompatActivity; 
+import android.os.Bundle; 
+import android.view.View; 
+import android.widget.Button; 
+import android.widget.TextView; 
+public class MainActivity extends AppCompatActivity { 
+TextView tv1 , his; 
+Button buttonOne , buttonTwo , buttonThree ,buttonFour ,buttonFive 
+,buttonSix ,buttonSeven ,buttonEight ,buttonNine ,buttonZero; 
+Button buttonPlus ,buttonMinus ,buttonMultiply ,buttonDivide ,buttonEqual 
+,buttonPoint,clear; 
+double temp = 0; 
+double result = 0; 
+String operator = "equal"; 
+    double decimqal = 1; 
+    double decimalScale = 1; 
+ 
+    int scale = 10; 
+ 
+    boolean op = false; 
+ 
+ 
+ 
+ 
+ 
+    @Override 
+    protected void onCreate(Bundle savedInstanceState) { 
+        super.onCreate(savedInstanceState); 
+        setContentView(R.layout.activity_main); 
+ 
+        tv1 = findViewById(R.id.result); 
+ 
+        buttonZero = findViewById(R.id.buttonZero); 
+        buttonOne = findViewById(R.id.buttonOne); 
+        buttonTwo = findViewById(R.id.buttonTwo); 
+        buttonThree = findViewById(R.id.buttonThree); 
+        buttonFour = findViewById(R.id.buttonFour); 
+        buttonFive = findViewById(R.id.buttonFive); 
+        buttonSix = findViewById(R.id.buttonSix); 
+        buttonSeven = findViewById(R.id.buttonSeven); 
+        buttonEight = findViewById(R.id.buttonEight); 
+        buttonNine = findViewById(R.id.buttonNine); 
+ 
+ 
+        buttonPoint= findViewById(R.id.buttonPoint); 
+        buttonPlus = findViewById(R.id.buttonPlus); 
+        buttonMinus = findViewById(R.id.buttonMinus); 
+        buttonMultiply = findViewById(R.id.buttonMultiply); 
+        buttonDivide = findViewById(R.id.buttonDivide); 
+        buttonEqual = findViewById(R.id.buttonequal); 
+        clear = findViewById(R.id.clear); 
+ 
+ 
+ 
+        getNumber(); 
+ 
+    } 
+ 
+ 
+ 
+    private void getNumber(){ 
+ 
+        buttonZero.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+ 
+                temp = temp * scale +  0 * decimqal ; 
+ 
+                decimqal = decimqal * decimalScale; 
+                tv1.setText("" + temp); 
+ 
+ 
+            } 
+        }); 
+ 
+ 
+        buttonOne.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+ 
+                temp = (temp * scale) + (1 * decimqal); 
+                decimqal = decimqal * decimalScale; 
+ 
+                tv1.setText("" + temp); 
+ 
+            } 
+        }); 
+ 
+        buttonTwo.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+ 
+                temp = temp * scale + 2 * decimqal; 
+                decimqal = decimqal * decimalScale; 
+                tv1.setText("" + temp); 
+ 
+ 
+            } 
+        }); 
+ 
+ 
+        buttonThree.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+ 
+                temp = temp * scale + 3 * decimqal; 
+                decimqal = decimqal * decimalScale; 
+                tv1.setText("" + temp); 
+            } 
+        }); 
+ 
+        buttonFour.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+ 
+                temp = temp * scale + 4 * decimqal; 
+                decimqal = decimqal * decimalScale; 
+                tv1.setText("" + temp); 
+            } 
+        }); 
+ 
+        buttonFive.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+ 
+                temp = temp * scale + 5 * decimqal; 
+                decimqal = decimqal * decimalScale; 
+                tv1.setText("" + temp); 
+            } 
+        }); 
+ 
+ 
+        buttonSix.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+ 
+                temp = temp * scale + 6 * decimqal; 
+                decimqal = decimqal * decimalScale; 
+                tv1.setText("" + temp); 
+            } 
+        }); 
+ 
+ 
+        buttonSeven.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+ 
+                temp = temp * scale + 7 * decimqal; 
+                decimqal = decimqal * decimalScale; 
+                tv1.setText("" + temp); 
+            } 
+        }); 
+ 
+        buttonEight.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+ 
+                temp = temp * scale + 8 * decimqal; 
+ 
+                decimqal = decimqal * decimalScale; 
+ 
+                tv1.setText("" + temp); 
+            } 
+        }); 
+ 
+ 
+        buttonNine.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+ 
+                temp = temp * scale + 9 * decimqal; 
+                decimqal = decimqal * decimalScale; 
+                tv1.setText("" + temp); 
+            } 
+        }); 
+ 
+ 
+        buttonPlus.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+                logic(); 
+                operator = "plus" ; 
+ 
+ 
+ 
+ 
+ 
+            } 
+        }); 
+ 
+        buttonMinus.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+                logic(); 
+                operator = "minus"; 
+ 
+ 
+ 
+            } 
+        }); 
+ 
+        buttonMultiply.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+                logic(); 
+                operator = "multiply"; 
+ 
+            } 
+        }); 
+ 
+        buttonDivide.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+                logic(); 
+                operator = "divide"; 
+ 
+ 
+            } 
+        }); 
+ 
+        buttonEqual.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+                logic(); 
+                operator = "equal"; 
+ 
+ 
+            } 
+        }); 
+ 
+        buttonPoint.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+ 
+                decimalScale = 0.1; 
+                decimqal = 0.1; 
+                scale = 1; 
+ 
+            } 
+        }); 
+ 
+        clear.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View view) { 
+                temp = 0; 
+ 
+                result = 0; 
+ 
+                operator = "equal"; 
+ 
+                decimqal = 1; 
+                decimalScale = 1; 
+ 
+                scale = 10; 
+ 
+                op = false; 
+ 
+                tv1.setText("0"); 
+ 
+            } 
+        }); 
+ 
+ 
+ 
+ 
+    } 
+ 
+    private void logic() { 
+ 
+        if(op == false){ 
+            result = temp; 
+            temp = 0; 
+            op = true; 
+        } 
+ 
+ 
+        if(operator.equals("plus")){ 
+ 
+            result = result + temp; 
+            temp = 0; 
+            decimqal = 1; 
+            decimalScale = 1; 
+            scale = 10; 
+        } 
+        else if (operator == "minus") { 
+            result = result - temp; 
+            temp = 0; 
+            decimqal = 1; 
+            decimalScale = 1; 
+            scale = 10; 
+        } 
+        else if (operator.equals("multiply")) { 
+            result = result * temp; 
+            temp = 0; 
+            decimqal = 1; 
+            decimalScale = 1; 
+            scale = 10; 
+        } 
+        else if (operator.equals("divide")) { 
+            result = result / temp; 
+            temp = 0; 
+            decimqal = 1; 
+            decimalScale = 1; 
+ 
+            scale = 10; 
+        } 
+ 
+        else if (operator.equals("equal")) { 
+ 
+            operator = "equal"; 
+            temp = 0; 
+            decimqal = 1; 
+            decimalScale = 1; 
+            scale = 10; 
+ 
+        } 
+ 
+        tv1.setText(" " + result); 
+ 
+ 
+ 
+ 
+    } 
+ 
+ 
+ 
+} 
+ 
+ 
+ 
